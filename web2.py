@@ -4,8 +4,8 @@ import urllib.request
 #크롤링
 from bs4 import BeautifulSoup
 
-#파일로 저장
-f=open("C:\\work\\webtoons.txt", "wt", encoding="utf-8")
+#파일로 저장(파일이 없으면 생성, 파일이 있으면 맨뒤로 가서 첨부 a+:appendreadwrite)
+f=open("C:\\work\\webtoons.txt", "a+", encoding="utf-8")
 #수열함수로 1부터 5까지 생성
 for i in range(1,6):
     url = "http://comic.naver.com/webtoon/list.nhn?titleId=20853&weekday=fri&page="+str(i)
