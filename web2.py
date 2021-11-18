@@ -4,18 +4,21 @@ import urllib.request
 #크롤링
 from bs4 import BeautifulSoup
 
-data = urllib.request.urlopen("http://comic.naver.com/webtoon/list.nhn?titleId=20853&weekday=fri")
-#검색이 용이한 객체
-soup = BeautifulSoup(data, "html.parser")
+#파일로 저장
+f=open("C:\\work\\webtoons.txt", "wt", encoding="utf-8")
+#수열함수로 1부터 5까지 생성
+for i in range(1,6):
+    url = "http://comic.naver.com/webtoon/list.nhn?titleId=20853&weekday=fri&page="+str(i)
+    #페이지 처리
+    data = urllib.request.urlopen(url)
+    #검색이 용이한 객체
+    soup = BeautifulSoup(data, "html.parser")
+    cartoons = soup.find_all("td", class_="title")
 
-#ctrl + /
-# <td class="title">
-# 	<a href="/webtoon/detail?" >마음의 소리 50화 &lt;격렬한 나의 하루&gt;</a>
-# </td>
-cartoons = soup.find_all("td", class_="title")
-#10개중에 0번을 찾아 다시 검색 ==> 문자열 리턴
-print("갯수:{0}".format(len(cartoons)))
-title=cartoons[0].find("a").text
-link=cartoons[0].find("a")["href"]
-print(title)
-print(link)
+    for item in cartoons:
+        title=item.find("a").text
+        print( title.strip() )
+        f.write(title.strip() + "\n")
+
+f.close()
+print("저장완료~~")
