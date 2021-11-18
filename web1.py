@@ -18,3 +18,12 @@ soup = BeautifulSoup(page, "html.parser")
 #필터링:<p class="outer-text">
 #파이썬에서 클래스를 정의하는 키워드가 class이므로 겹치니까 언더바를붙엿음
 print( soup.find_all("p", class_="outer-text") )
+
+#id로 검색
+#print(soup.find_all(id="first"))
+
+for tag in soup.find_all("p"):
+    #컨텐츠만 달라:text속성
+    title=tag.text.strip()
+    title=title.replace("\t", "")
+    print(title)
