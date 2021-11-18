@@ -23,7 +23,7 @@ print( soup.find_all("p", class_="outer-text") )
 #print(soup.find_all(id="first"))
 
 for tag in soup.find_all("p"):
-    #컨텐츠만 달라:text속성
+    #컨텐츠만 가져오기:text속성
     title=tag.text.strip()
     title=title.replace("\t", "")
     print(title)
