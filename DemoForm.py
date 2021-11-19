@@ -1,5 +1,5 @@
-# DemoForm.py
-# DemoForm.ui(화면단) + DemoForm.py(로직단)
+# DemoForm2.py
+# DemoForm2.ui(화면단) + DemoForm2.py(로직단)
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
@@ -14,9 +14,15 @@ class DemoForm(QDialog, form_class):
         self.setupUi(self)
         self.label.setText("첫번째 데모")
 
-#진입점을 체크
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    demoWindow = DemoForm()
-    demoWindow.show()
-    app.exec_()
+# #진입점을 체크
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     demoWindow = DemoForm()
+#     demoWindow.show()
+#     app.exec_()
+
+    #인스턴스를 생성
+app = QApplication(sys.argv)
+demoWindow = DemoForm()
+demoWindow.show()
+app.exec_()
